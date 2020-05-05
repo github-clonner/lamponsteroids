@@ -6,10 +6,14 @@
   become: yes
   become_user: root
   roles:
-    - ../roles/centos
+    - ../roles/dnf
+    - ../roles/users
+    - ../roles/ssh
     - ../roles/ntp
     - ../roles/openssl
     - ../roles/git
+    - ../roles/nginx
+    - ../roles/centos
     - ../roles/httpd
     - ../roles/nodejs
     - ../roles/awscli
@@ -18,7 +22,6 @@
     - ../roles/datadog
     - ../roles/mongodb
     - ../roles/letsencrypt
-    - ../roles/nginx
     - ../roles/redis
 
   vars_files:

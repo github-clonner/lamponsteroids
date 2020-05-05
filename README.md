@@ -1,7 +1,7 @@
 LAMP on Steroids
 ================
 
-Setup your server quickly with LAMP on Steroids. This repository is dedicated to `CentOS 7` system.
+Setup your server quickly with LAMP on Steroids. This repository is dedicated to `CentOS 7/8` system.
 Main goal is to setup working LAMP server with latest versions of available tools. 
 Secondary goal is to keep your server secure and up to date. 
 
@@ -42,16 +42,24 @@ ansible-playbook -i hosts playbooks/YOUR_PLAYBOOK_FILE.yml -K
 
 Included roles
 --------------
+**dnf** - Handles package management, security features and package installation optimisations. 
 
-**centos** - Takes care of system settings. Configure yum, yum-cron, update and remove packages. 
-It also take cares of groups and users. Enable sudo. Configure secure SSH. Set up firewall based on iptables. Disable Transparent Huge Pages.
-You can setup logrotate scripts with this role as well.
+**users** - Handle users/groups management and enables sudo. 
+
+**ssh** - SSHD hardening.
 
 **ntp** - Takes care of system timezone and NTP server. It uses Chrony for using NTP.
 
-**openssl** - Compile OpenSSL from source (1.1.0g)
+**openssl** - Compile OpenSSL from source (1.1.1e)
 
-**git** - Compile git from source with OpenSSL (2.16.3) 
+**git** - Compile and install Git from source (2.25.2) 
+
+**nginx** - Compile, install and configure nginx from source (1.17.9)
+
+**php** - Compile, install and configure PHP and tools (7.4.4)
+
+**centos** - Takes care of system settings. Set up firewall based on iptables. Disable Transparent Huge Pages.
+You can setup logrotate scripts with this role as well.
 
 **httpd** - Compile and configure Apache httpd from source with OpenSSL (2.4.33)
 
@@ -63,13 +71,9 @@ You can setup logrotate scripts with this role as well.
 
 **awscli** - Install and configure AWS CLI command line tool
 
-**php** - Install and configure PHP (7.2.3), PHP-FPM, PHP Pecl extensions and Composer. Opcache is enabled as well.
-
 **mongodb** - Install and configure MongoDB (3.4.7) with authentication
 
 **letsencrypt** - Install Certbot and obtain certificates from Let's Encrypt
-
-**nginx** - Install and configure latest version of nginx (1.13.4)
 
 **redis** - Install and configure latest version of redis (4.0.1)
 
